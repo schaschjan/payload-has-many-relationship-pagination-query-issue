@@ -19,6 +19,18 @@ export const PostsCollection: CollectionConfig = {
       relationTo: mediaSlug,
       type: 'upload',
     },
+    {
+      name: 'relations',
+      type: 'relationship',
+      relationTo: ['tags', 'categories'],
+      hasMany: true,
+      admin: {
+        sortOptions: {
+          tags: 'title:desc',
+          categories: 'title:desc',
+        },
+      },
+    },
   ],
   slug: postsSlug,
 }
